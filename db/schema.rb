@@ -15,6 +15,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_07_114859) do
   enable_extension "plpgsql"
 
   create_table "cars", force: :cascade do |t|
+    t.integer "id", primary_key: true
     t.string "name"
     t.string "colour"
     t.decimal "price_per_day"

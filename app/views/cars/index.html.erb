@@ -1,4 +1,13 @@
 <h1>The cars</h1>
+<%= form_with(url: cars_path, method: "get") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search by car name" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<%= form_with(url: search_cars_path, method: "get") do %>
+  <%= text_field_tag :id, params[:id], placeholder: "Search by car ID" %>
+  <%= submit_tag "Search" %>
+<% end %>
 
 <ul>
 <% @cars.each do |car| %>

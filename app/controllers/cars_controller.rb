@@ -1,6 +1,11 @@
 class CarsController < ApplicationController
+
   def index
-    @cars = Car.all
+    if params[:search]
+      @cars = Car.where("name LIKE ?", "%#{params[:search]}")
+    else
+      @cars = Car.all
+    end
   end
 
   def new
@@ -17,6 +22,14 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
   end
 
+  def search
+    if @car = Car.find_by_id(params[:id])
+      render :show
+    else
+      flash[:alert] = "Car with ID #{params[:id]} not found."
+      redirect_to cars_path
+    end
+  end
 
   private
 
