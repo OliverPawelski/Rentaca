@@ -1,32 +1,39 @@
-<h1>Create your listing</h1>
 
-<%= form_with(model: @car, local: true) do |form| %>
-  <div class="field">
-    <%= form.label :colour %>
-    <%= form.text_field :colour %>
+<div class="new-container">
+<h1 class="text-center">Create your listing</h1>
+<div class="form-container">
+  <%= form_with(model: @car, local: true) do |form| %>
+    <div class="field w-100">
+      <%= form.label :location %>
+      <%= form.text_field :location, class:"form-control"%>
+    </div>
+  <div class="d-flex mb-3">
+    <div class="field w-100">
+      <%= form.label :colour %>
+      <%= form.text_field :colour, class:"form-control" %>
+    </div>
+
+    <div class="field w-100">
+      <%= form.label :registration_number %>
+      <%= form.text_field :registration_number, class:"form-control" %>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="field w-100">
+      <%= form.label :price_per_day %>
+      <%= form.text_field :price_per_day, class:"form-control"%>
+    </div>
+
+    <div class="field w-100">
+      <%= form.label :name %>
+      <%= form.text_field :name, class:"form-control"%>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :registration_number %>
-    <%= form.text_field :registration_number %>
-  </div>
 
-  <div class="field">
-    <%= form.label :price_per_day %>
-    <%= form.text_field :price_per_day %>
-  </div>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-  <% end %>
+    <div class="actions">
+      <%= form.button :submit, class:"w-100 btn btn-primary mt-3"%>
+    </div>
+    <% end %>
+    </div>
+</div>
