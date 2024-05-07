@@ -11,11 +11,15 @@
 
 <ul>
 <% @cars.each do |car| %>
+  <% if car.image.attached? %>
+  <%= image_tag @car.image %>
+  <% end %>
   <h3><%= car.name %></h3>
   <li> <%= car.colour %> </li>
   <li> <%= car.price_per_day %> </li>
   <li> <%= car.location %> </li>
   <li> <%= car.registration_number %> </li>
+
 <%# make it so only the owner has access to these features  <%= link_to "Edit", edit_car_path(car) %>
 <%# <%= button_to "Delete", car, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
 
