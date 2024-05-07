@@ -13,6 +13,10 @@ class CarsController < ApplicationController
     redirect_to car_path(@car)
   end
 
+  def show
+    @car = Car.find(params[:id])
+  end
+
 
   private
 
