@@ -1,0 +1,33 @@
+<h1>Edit Car</h1>
+    <% @car = Car.find(params[:id]) %>
+
+<%= form_with(model: @car, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, placeholder: @car.name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :colour %>
+    <%= form.text_field :colour, placeholder: @car.colour %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price_per_day %>
+    <%= form.text_field :price_per_day, placeholder: @car.price_per_day %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location, placeholder: @car.location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :registration_number %>
+    <%= form.text_field :registration_number, placeholder: @car.registration_number %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Update Car" %>
+  </div>
+<% end %>

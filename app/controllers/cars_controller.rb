@@ -1,4 +1,5 @@
 class CarsController < ApplicationController
+  before_action :set_car, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:search]
@@ -31,7 +32,31 @@ class CarsController < ApplicationController
     end
   end
 
+  def edit
+    @car
+  end
+
+  def update
+    if @car.update(car_params)
+      redirect_to @car, notice: "Car updated"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    set_car
+    @car.destroy
+    redirect_to cars_path, status: :see_other
+  end
   private
+
+  def set_car
+    @car = Car.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "Car with ID #{params[:id]} not found."
+    redirect_to cars_path
+  end
 
   def car_params
     params.require(:car).permit(:name, :colour, :price_per_day, :location, :registration_number)
