@@ -5,6 +5,11 @@ require "rails/all"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+require "cloudinary"
+Cloudinary.config_from_url("cloudinary://API_KEY:API_SECRET@CLOUD_NAME")
+Cloudinary.config do |config|
+  config.secure = true
+end
 
 module Rentaca
   class Application < Rails::Application

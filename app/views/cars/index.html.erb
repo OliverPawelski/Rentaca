@@ -9,10 +9,12 @@
   <%= submit_tag "Search" %>
 <% end %>
 
+<%= cl_image_tag 'https://res.cloudinary.com/djmjrzlhq/image/upload/v1715094193/cld-sample.jpg', crop: :fill, width: 300, height: 200 %>
+
 <ul>
 <% @cars.each do |car| %>
   <% if car.image.attached? %>
-  <%= image_tag @car.image %>
+  <%= cl_image_tag @car.image %>
   <% end %>
   <h3><%= car.name %></h3>
   <li> <%= car.colour %> </li>
