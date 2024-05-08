@@ -1,6 +1,6 @@
 <% if current_user %>
-  <h2>Welcome <%= current_user.first_name %></h2>
+  <h2 style="color: black; text-align: center; padding-top: 40px;">Welcome <%= current_user.first_name %></h2>
 <% end %>
-<%= link_to "Edit Profile",  edit_user_registration_path %>
-<%= link_to "View my cars", user_cars_path %>
-<%= link_to "Create a car", new_car_path %>
+<%= link_to "Edit Profile",  edit_user_registration_path, style: "display: block; margin: 10px auto; width: 150px; text-align: center; background-color: #007bff; color: #fff; padding: 10px; text-decoration: none; border-radius: 5px;" %>
+<%= link_to "View my cars", user_cars_path, style: "display: block; margin: 10px auto; width: 150px; text-align: center; background-color: #007bff; color: #fff; padding: 10px; text-decoration: none; border-radius: 5px;" %>
+<%= link_to "Create a car", new_car_path, style: "display: block; margin: 10px auto; width: 150px; text-align: center; background-color: #007bff; color: #fff; padding: 10px; text-decoration: none; border-radius: 5px;" %>
