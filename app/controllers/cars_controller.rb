@@ -44,12 +44,17 @@ class CarsController < ApplicationController
     end
   end
 
+  def user_cars
+    @user_cars = current_user.cars
+  end
+
   def destroy
     set_car
     @car.destroy
     redirect_to cars_path, status: :see_other
   end
   private
+
 
   def set_car
     @car = Car.find(params[:id])
