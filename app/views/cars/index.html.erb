@@ -9,6 +9,8 @@
   <%= submit_tag "Search" %>
 <% end %>
 
+<%= cl_image_tag 'cld-sample-2.jpg', crop: :fill, width: 300, height: 200 %>
+
 <ul>
 <% @cars.each do |car| %>
   <h3><%= car.name %></h3>
@@ -16,6 +18,7 @@
   <li> <%= car.price_per_day %> </li>
   <li> <%= car.location %> </li>
   <li> <%= car.registration_number %> </li>
+
 <%# make it so only the owner has access to these features  <%= link_to "Edit", edit_car_path(car) %>
 <%# <%= button_to "Delete", car, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
 
