@@ -15,7 +15,10 @@
             <%= link_to "About Us", "http://127.0.0.1:3000/about", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Cars", "#", class: "nav-link" %>
+            <%= link_to "My Cars", user_cars_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Bookings", bookings_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
