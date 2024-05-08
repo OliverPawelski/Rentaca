@@ -1,0 +1,9 @@
+<h1><%= @car.name %></h1>
+
+<ul>
+  <li> Colour: <%= @car.colour %> </li>
+  <li> Rate: <%= @car.price_per_day %> / day</li>
+  <li> Location: <%= @car.location %> </li>
+  <li> Registration: <%= @car.registration_number %> </li>
+  <%= cl_image_tag @car.image.key %>
+</ul>

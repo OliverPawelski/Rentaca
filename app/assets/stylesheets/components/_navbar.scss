@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: rgb(25, 124, 206);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +9,19 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+.navbar-brand {
+  color: white;
+}
+.Home{
+  color: white;
+}
+/* Add this CSS to change the color of the links to white */
+.navbar-lewagon .navbar-nav .nav-link {
+  color: white;
+}
+
+/* Optionally, you can change the color of the active link */
+.navbar-lewagon .navbar-nav .nav-item.active .nav-link {
+  color: white;
 }

@@ -1,4 +1,15 @@
 <h1>The cars</h1>
+<%= form_with(url: cars_path, method: "get") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search by car name" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<%= form_with(url: search_cars_path, method: "get") do %>
+  <%= text_field_tag :id, params[:id], placeholder: "Search by car ID" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<%= cl_image_tag 'cld-sample-2.jpg', crop: :fill, width: 300, height: 200 %>
 
 <ul>
 <% @cars.each do |car| %>
@@ -7,5 +18,9 @@
   <li> <%= car.price_per_day %> </li>
   <li> <%= car.location %> </li>
   <li> <%= car.registration_number %> </li>
+
+<%# make it so only the owner has access to these features  <%= link_to "Edit", edit_car_path(car) %>
+<%# <%= button_to "Delete", car, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+
 <% end %>
 </ul>
