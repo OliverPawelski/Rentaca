@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "/profile/:id", to: "pages#profile", as: :profile
   get "/user_cars", to: "cars#user_cars", as: "user_cars"
+  get "/bookings", to: "pages#bookings"
   # Defines the root path route ("/")
 end
