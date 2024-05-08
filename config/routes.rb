@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get 'search', on: :collection
   end
   root to: "pages#home"
-
+  get "/profile/:id", to: "pages#profile", as: :profile
+  get "/user_cars", to: "cars#user_cars", as: "user_cars"
   # Defines the root path route ("/")
 end

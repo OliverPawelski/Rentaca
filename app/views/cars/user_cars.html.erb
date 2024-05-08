@@ -1,0 +1,12 @@
+<h2>Here are your cars</h2>
+
+<ul class="user_car_details">
+<% @user_cars.each do |user_car| %>
+<h3> <%= user_car.name %> </h3>
+<li><%= user_car.colour %></li>
+<li><%= user_car.price_per_day %></li>
+<li><%= user_car.location %></li>
+<li><%= user_car.registration_number %></li>
+
+<% end %>
+</ul>

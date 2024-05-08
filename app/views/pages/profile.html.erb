@@ -1,0 +1,5 @@
+<% if current_user %>
+  <h2>Welcome <%= current_user.first_name %></h2>
+<% end %>
+<%= link_to "Edit Profile",  edit_user_registration_path %>
+<%= link_to "View my cars", user_cars_path %>
