@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
   get "/about", to: "pages#about"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -10,5 +9,7 @@ Rails.application.routes.draw do
   resources :cars do
     get 'search', on: :collection
   end
+  root to: "pages#home"
+
   # Defines the root path route ("/")
 end
