@@ -27,7 +27,13 @@
     <%= form.text_field :registration_number, placeholder: @car.registration_number %>
   </div>
 
+    <div class="field">
+      <%= form.label :image %>
+      <%= form.file_field :image %>
+    </div>
+
   <div class="actions">
     <%= form.submit "Update Car" %>
   </div>
+
 <% end %>

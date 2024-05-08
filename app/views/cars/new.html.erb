@@ -1,39 +1,15 @@
 
 <div class="new-container">
-<h1 class="text-center pt-5">Reserve a Vehicle</h1>
-<div class="form-container">
-<%= form_with(model: @car, local: true) do |form| %>
-  <div class="field w-100">
-    <%= form.label :location %>
-    <%= form.text_field :location, class: "form-control", placeholder: "Search by location" %>
-  </div>
-  <div class="d-flex mb-3">
-    <div class="field w-100">
-      <%= form.label :colour %>
-      <%= form.text_field :colour, class:"form-control", placeholder: "black, sliver" %>
-    </div>
 
-    <div class="field w-100">
-      <%= form.label :registration_number %>
-      <%= form.text_field :registration_number, class:"form-control" %>
-    </div>
-  </div>
-  <div class="d-flex">
-    <div class="field w-100">
-      <%= form.label :price_per_day %>
-      <%= form.text_field :price_per_day, class:"form-control"%>
-    </div>
-
-    <div class="field w-100">
-      <%= form.label :name %>
-      <%= form.text_field :name, class:"form-control"%>
-    </div>
-  </div>
-
-
-    <div class="actions">
-      <%= form.button :submit, class:"w-100 btn btn-primary mt-3"%>
-    </div>
-    <% end %>
+<h1 class="text-center">Create your listing</h1>
+<%= simple_form_for @car, html: { multipart: true } do |form| %>
+  <%= form.input :name %>
+  <%= form.input :colour %>
+  <%= form.input :price_per_day %>
+  <%= form.input :location %>
+  <%= form.input :registration_number %>
+  <%= form.input :image, as: :file %>
+  <%= form.button :submit %>
+<% end %>
     </div>
 </div>
