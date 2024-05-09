@@ -17,6 +17,8 @@
   <li> <%= car.price_per_day %> </li>
   <li> <%= car.location %> </li>
   <li> <%= car.registration_number %> </li>
+  <%= link_to "Book this car", new_booking_path(car_id: car.id) %>
+
   </ul>
     <% end %>
 

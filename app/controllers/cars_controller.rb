@@ -56,6 +56,13 @@ class CarsController < ApplicationController
     @car.destroy
     redirect_to cars_path, status: :see_other
   end
+
+  def get_daily_rate
+    car = Car.find(params[:car_id])
+    render json: { daily_rate: car.price_per_day}
+  end
+
+
   private
 
 
