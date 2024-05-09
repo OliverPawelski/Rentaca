@@ -10,4 +10,7 @@ class PagesController < ApplicationController
   def bookings
   end
 
+  def admin_dashboard
+  end
+
 end
