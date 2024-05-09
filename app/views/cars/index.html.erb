@@ -10,18 +10,16 @@
     </div>
   <% end %>
 
-
-<ul class="car-details">
 <% @cars.each do |car| %>
+<ul class>
   <h3><%= car.name %></h3>
   <li> <%= car.colour %> </li>
   <li> <%= car.price_per_day %> </li>
   <li> <%= car.location %> </li>
   <li> <%= car.registration_number %> </li>
-
-
-    <% end %>
   </ul>
+    <% end %>
+
 </div>
 
 

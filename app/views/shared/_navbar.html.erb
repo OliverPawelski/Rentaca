@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon bg-black">
   <div class="container-fluid">
     <%= link_to "http://127.0.0.1:3000", class: "navbar-brand" do %>
-      Car Rentaca
+      Rentaca
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,10 +15,19 @@
             <%= link_to "About Us", "http://127.0.0.1:3000/about", class: "nav-link" %>
           </li>
           <li class="nav-item">
+          <% if current_user.cars.any? %>
             <%= link_to "My Cars", user_cars_path, class: "nav-link" %>
+          <% else %>
+          <%= link_to "Add a Car", new_car_path, class: "nav-link" %>
+          <% end %>
           </li>
           <li class="nav-item">
             <%= link_to "Bookings", bookings_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+          <% if current_user.email == "admin@gmail.com" %>
+            <%= link_to "Admin", admin_dashboard_path, class: "nav-link" %>
+          <% end %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
