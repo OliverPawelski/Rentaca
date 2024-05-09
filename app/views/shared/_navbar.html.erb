@@ -1,12 +1,31 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&display=swap" rel="stylesheet">
+
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon bg-black">
   <div class="container-fluid">
-    <%= link_to "http://127.0.0.1:3000", class: "navbar-brand" do %>
+    <%= link_to "http://127.0.0.1:3000", class: "navbar-brand", style:"font-family: 'Bebas Neue', sans-serif; font-size: 1.5em" do %>
       Rentaca
     <% end %>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border: none; background: none;">
+  <div class="navbar-toggler-icon">
+    <style>
+      .navbar-toggler-bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin-bottom: 4px;
+        border-radius: 2px;
+      }
+    </style>
+    <span class="navbar-toggler-bar"></span>
+    <span class="navbar-toggler-bar"></span>
+    <span class="navbar-toggler-bar"></span>
+  </div>
+</button>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
@@ -31,7 +50,7 @@
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "logo.png", class: "avatar", alt: "dropdown menu" %>
+            <%= image_tag "image.png", class: "avatar", alt: "dropdown menu" %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", profile_path(current_user), class: "dropdown-item" %>

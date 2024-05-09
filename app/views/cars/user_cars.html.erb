@@ -1,12 +1,45 @@
-<h1>Here are your cars</h1>
+<div class="container justify-content-center text-center mt-5" style="max-width: 800px;">
+  <h1 class="pt-5">Here are your cars</h1>
+</div>
+  <div class="container" style="width: 100%; height: 100%;">
 
-<ul class="user_car_details">
-<% @user_cars.each do |user_car| %>
-<h3> <%= user_car.name %> </h3>
-<li><%= user_car.colour %></li>
-<li><%= user_car.price_per_day %></li>
-<li><%= user_car.location %></li>
-<li><%= user_car.registration_number %></li>
+    <div class="product" style="width: 610px; height: 250px; display: flex; margin: 1em 0; border-radius: 5px; overflow: hidden; cursor: pointer; transition: all .1s ease-in-out;">
 
-<% end %>
-</ul>
+      <div class="img-container" style="flex: 2;">
+        <img src="../assets/car2.jpg" style="object-fit: cover; width: 100%; height: 100%;">
+      </div>
+
+      <div class="product-info" style="background: #fff; flex: 3;">
+
+        <div class="product-content d-flex flex-column justify-content-between h-100" style="padding: .2em 0 .2em 1em;">
+        <div>
+          <h1 style="font-size: 1.5em;">Car Name</h1>
+          <h2 style="font-size: 1em;">Car Color</h2>
+          <h1 style="font-size: 1em;">Car Location</h1>
+          <h1 style="font-size: 1em;">Car registration_number</h1>
+        </div>
+          <div class="buttons d-flex justify-content-end p-3" style="padding-top: .4em;">
+
+
+            <span class="button" id="price" >$59,99</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <ul class="user_car_details">
+    <% @user_cars.each do |user_car| %>
+      <h3> <%= user_car.name %> </h3>
+      <li><%= user_car.colour %></li>
+      <li><%= user_car.price_per_day %></li>
+      <li><%= user_car.location %></li>
+      <li><%= user_car.registration_number %></li>
+    <% end %>
+  </ul>
+</div>
