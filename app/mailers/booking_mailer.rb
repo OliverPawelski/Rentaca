@@ -1,4 +1,4 @@
-class BookingRequestMailer < ApplicationMailer
+class BookingMailer < ApplicationMailer
   def booking_request_email(car_owner_email, booking, current_user)
     @car_owner_email = car_owner_email
     @booking = booking
