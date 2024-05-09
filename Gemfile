@@ -80,3 +80,5 @@ gem "devise", "~> 4.9"
 gem "cloudinary"
 
 gem "geocoder"
+
+gem 'jquery-ui-rails'

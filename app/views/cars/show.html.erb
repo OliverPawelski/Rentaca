@@ -7,6 +7,8 @@
   <li> Location: <%= @car.location %> </li>
   <li> Registration: <%= @car.registration_number %> </li>
   <%= cl_image_tag @car.image.key %>
+  <%= button_to "Create Booking", bookings_path(car_id: @car.id), method: :post %>
+
 </ul>
 
 <% else %>
