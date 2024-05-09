@@ -1,22 +1,24 @@
 class BookingsController < ApplicationController
   def new
     @booking = Booking.new
-    @cars = Car.all
-    @daily_rate = nil
+    @car = Car.find(params[:car_id])
+    @daily_rate = @car.price_per_day
 
     if params[:car_id].present?
       car = Car.find(params[:car_id])
       @daily_rate = car.price_per_day
     end
   end
+
   def create
+    puts params.inspect
     @car = Car.find(params[:car_id])
     @booking = Booking.new(booking_params)
     @booking.car = @car
     @booking.user = current_user
 
     if @booking.save
-      BookingRequestMailer.booking_request_email(@car.user.email,@booking).deliver_now
+      BookingRequestMailer.booking_request_email(@car.user.email, @booking, current_user).deliver_now
       redirect_to root_path, notice: "Booking request sent to the car owner"
     else
       render :new
