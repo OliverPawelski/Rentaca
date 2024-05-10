@@ -36,7 +36,7 @@ class CarsController < ApplicationController
   end
 
   def edit
-    @car = Car.find(params[:id])
+    @car
   end
 
   def update
