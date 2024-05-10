@@ -12,13 +12,13 @@ class BookingsController < ApplicationController
 
   def create
     puts params.inspect
-    @car = Car.find(params[:car_id])
+    @car = Car.find(booking_params[:car_id])
     @booking = Booking.new(booking_params)
     @booking.car = @car
     @booking.user = current_user
 
     if @booking.save
-      BookingRequestMailer.booking_request_email(@car.user.email, @booking, current_user).deliver_now
+      BookingMailer.booking_request_email(@car.user.email, @booking, current_user).deliver_now
       redirect_to root_path, notice: "Booking request sent to the car owner"
     else
       render :new

@@ -9,8 +9,8 @@ module Rentaca
 
     # Configure generators
     config.generators do |generate|
-      generate.assets false
-      generate.helper false
+      generate.assets true
+      generate.helper true
       generate.test_framework :test_unit, fixture: false
     end
 
