@@ -1,13 +1,21 @@
-<%= simple_form_for @booking, url: bookings_path do |f| %>
-  <%= f.hidden_field :car_id, value: @car.id %>
-  <%= f.input :start_date, as: :string, input_html: { class: 'datepicker' } %>
-  <%= f.input :end_date, as: :string, input_html: { class: 'datepicker' } %>
-  <%= f.input :totalprice, input_html: { readonly: true } %>
-  <%= f.input :daily_rate, input_html: { id: 'booking_daily_rate', readonly: true, value: @daily_rate } %>
-
-    <%= cl_image_tag @car.image.key %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container p-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card p-4">
+        <h1 class="text-center pb-2">Create a booking</h1>
+        <%= simple_form_for @booking, url: bookings_path do |f| %>
+          <%= f.hidden_field :car_id, value: @car.id %>
+          <%= f.input :start_date, as: :string, input_html: { class: 'datepicker form-control' } %>
+          <%= f.input :end_date, as: :string, input_html: { class: 'datepicker form-control' } %>
+          <%= f.input :totalprice, input_html: { readonly: true, class: 'form-control' } %>
+          <%= f.input :daily_rate, input_html: { id: 'booking_daily_rate', readonly: true, value: @daily_rate, class: 'form-control' } %>
+          <%# <%= f.button :submit, class: 'btn btn-dark mt-3' %>
+          <%= link_to 'Create Booking', 'http://127.0.0.1:3000/bookings', class: 'btn btn-dark mt-3' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
   $(document).ready(function() {
@@ -29,20 +37,31 @@
     $('.datepicker').datepicker({
       dateFormat: 'dd-mm-yy',
       onSelect: function(dateText, inst) {
+        // Get selected start and end dates
+        let startDate = $("#booking_start_date").datepicker("getDate");
+        let endDate = $("#booking_end_date").datepicker("getDate");
+
+        // If end date is before start date, set end date to start date
+        if (endDate < startDate) {
+          $("#booking_end_date").datepicker("setDate", startDate);
+        }
+
+        // Call updateTotal function
         updateTotal();
       }
     });
 
-    function updateTotal() {
-      let startDate = $("#booking_start_date").datepicker("getDate");
-      let endDate = $("#booking_end_date").datepicker("getDate");
-      let dailyRate = parseFloat($("#booking_daily_rate").val());
+function updateTotal() {
+  let startDate = $("#booking_start_date").datepicker("getDate");
+  let endDate = $("#booking_end_date").datepicker("getDate");
+  let dailyRate = parseFloat($("#booking_daily_rate").val());
 
-      if (!isNaN(startDate) && !isNaN(endDate) && !isNaN(dailyRate)) {
-        let days = Math.floor((endDate - startDate) / (24 * 60 * 60 * 1000));
-        let totalPrice = days * dailyRate;
-        $('#booking_totalprice').val(totalPrice.toFixed(2));
-      }
-    }
+  if (!isNaN(startDate) && !isNaN(endDate) && !isNaN(dailyRate)) {
+    let days = Math.floor((endDate - startDate) / (24 * 60 * 60 * 1000));
+    let totalPrice = Math.max(days * dailyRate, dailyRate); // Set the minimum total price to the daily rate
+    $('#booking_totalprice').val(totalPrice.toFixed(2));
+  }
+}
+
   });
 </script>
