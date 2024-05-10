@@ -10,6 +10,26 @@ class BookingsController < ApplicationController
     end
   end
 
+  def accept
+    @booking = Booking.find(params[:id])
+    if current_user == @booking.car.user && @booking.status != "confirmed"
+      @booking.update(status: "confirmed")
+      redirect_to bookings_path, notice: "Booking confirmed"
+    else
+      redirect_to bookings_path, alert: "Unable to confirm booking"
+    end
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    if current_user == @booking.car.user && @booking.status != "confirmed"
+      @booking.update(status: "declined")
+      redirect_to bookings_path, notice: "Booking declined"
+    else
+      redirect_to bookings_path, alert: "Unable to decline booking"
+    end
+  end
+
   def create
     puts params.inspect
     @car = Car.find(booking_params[:car_id])
@@ -39,7 +59,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :car_id, :user_id, :totalprice )
+    params.require(:booking).permit(:start_date, :end_date, :car_id, :user_id, :totalprice, :status)
   end
 
 end
