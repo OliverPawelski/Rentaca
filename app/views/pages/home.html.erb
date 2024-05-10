@@ -4,7 +4,7 @@
 
 <div class="banner" style="background-image: url('<%= image_path("bmw.jpg") %>'); height: 600px; background-size: 100% auto; background-repeat: no-repeat;">
   <div class="container text-center pt-5">
-    <h1 class="pt-5" style="font-size: 6em; color: white; font-family: 'Bebas Neue', sans-serif; padding-top: 10em">Rentaca</h1>
+    <h1 class="pt-5" style="font-size: 7em; color: white; font-family: 'Bebas Neue', sans-serif; padding-top: 10em">Rentaca</h1>
     <div class="pb-5">
       <%= link_to "See the cars", cars_path, style: "display: inline-block; padding: 10px 20px; background-color: black; color: #fff; text-decoration: none; border-radius: 5px; border: none; cursor: pointer;" %>
     </div>
@@ -12,7 +12,7 @@
    <div style="display: flex; justify-content: center;">
     <div class="container bg-white p-3" style="border-radius: 30px; width: 900px;">
       <form action="/rental_submit" method="post">
-        <label for="where">Where</label>
+        <label for="where">Location:</label>
         <input type="text" id="where" name="where" required>
 
         <label for="pickup_date">Pickup Date:</label>
@@ -21,7 +21,8 @@
         <label for="return_date">Return Date:</label>
         <input type="date" id="return_date" name="return_date" required>
 
-        <%= submit_tag "Search", class: "btn btn-dark" %>
+        <%= link_to "Search", "http://127.0.0.1:3000/cars", class: "btn btn-dark" %>
+
 
       </form>
     </div>
@@ -40,7 +41,28 @@
       <p class="pt-5">Welcome to Car Rentaca, where we redefine car rentals. Craft your automotive adventure with our innovative platform, designing your dream car from make to model. Whether a sleek convertible or rugged SUV, create your perfect ride with us. We're dedicated to exceeding expectations, seamlessly bringing your vision to life. Elevate your journey with personalized service and unparalleled quality. Start designing your dream car with Car Rentaca today.</p>
     </div>
     <div class="col-md-6">
-      <%= image_tag "car2.jpg", class: "banner", width: "525", height: "300"%>
+<%= image_tag("car2.jpg", class: "banner", width: 525, height: 300, style: "margin: 20px") %>
+
     </div>
   </div>
 </div>
+<section id="section-cta" style="padding: 60px 0 60px 0; background: black; color: white;">
+    <div class="sep-background-mask"></div>
+    <div class="container">
+        <div class="row">
+            <div class="quick_newsletter">
+                <div class="newsletter-info col-md-4 col-sm-4" style="color: #f8f8f8;">
+                    <h3 style="font-size: 20px; font-weight: bold; text-transform: uppercase; line-height: 36px; margin: 0px; color: #f8f8f8;">SIGN UP TO OUR MAILING LIST</h3>
+                    <p>Be the first to find out about latest stock, exclusive previews, event invitations and special offers.</p>
+                </div>
+                <div class="newsletter-element">
+                    <form action="inc/newsletter.php" method="post">
+                        <p class="col-md-3 col-sm-3"><input class="newsletter-firstname input-text" type="text" placeholder="Your Name" style="background-color: #f8f8f8; padding: 15px 20px; display: inline-block; border: none; outline: none; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px;"></p>
+                        <p class="col-md-3 col-sm-3"><input class="newsletter-email input-text" type="email" placeholder="Enter email" style="background-color: #f8f8f8; padding: 15px 20px; display: inline-block; border: none; outline: none; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px;"></p>
+                        <p class="col-md-2 col-sm-2"><button class="newsletter-submit btn" type="submit" style="font-size: 15px; font-weight: bold; color: #ffffff; line-height: 21px; padding: 15px 30px 15px 30px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; min-width: auto; position: relative; display: inline-block; background-color: #555555;"> <i class="fa fa-paper-plane"></i> Subscribe</button></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
