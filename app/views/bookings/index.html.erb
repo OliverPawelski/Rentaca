@@ -1,6 +1,6 @@
-<h1>My bookings</h1>
+<h1 class="text-center pt-5">My bookings</h1>
 
-<ul>
+<div class="card-container p-5">
   <% @bookings.each do |booking| %>
     <li>
       <strong>Car Name:</strong> <%= booking.car.name %><br>
@@ -17,4 +17,4 @@
       <% end %>
     </li>
   <% end %>
-</ul>
+</div>
