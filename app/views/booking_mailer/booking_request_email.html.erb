@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+  <h2>New Booking Request</h2>
+  <p>Hello, <%= @car_owner_email %>,</p>
+  <p>You have received a new booking request for your car <%= @car.name %>.</p>
+  <p>Renter: <%= "#{@renter.first_name} #{@renter.last_name}"  %></p>
+  <p>Start Date: <%= @start_date %></p>
+  <p>End Date: <%= @end_date %></p>
+  <p>Total Price: <%= @total_price %></p>
+  <p>Daily Rate: <%= @daily_rate %></p>
+</body>
+</html>

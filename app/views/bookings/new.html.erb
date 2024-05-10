@@ -4,6 +4,8 @@
   <%= f.input :end_date, as: :string, input_html: { class: 'datepicker' } %>
   <%= f.input :totalprice, input_html: { readonly: true } %>
   <%= f.input :daily_rate, input_html: { id: 'booking_daily_rate', readonly: true, value: @daily_rate } %>
+
+    <%= cl_image_tag @car.image.key %>
   <%= f.button :submit %>
 <% end %>
 
