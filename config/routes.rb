@@ -4,7 +4,14 @@ Rails.application.routes.draw do
   devise_for :users
   get "/about", to: "pages#about"
   get "up" => "rails/health#show", as: :rails_health_check
-  resources :bookings
+  resources :bookings do
+    member do
+      patch :accept
+      patch :decline
+      get :accept
+      get :decline
+    end
+  end
   resources :users do
     delete :destroy, on: :member
   end

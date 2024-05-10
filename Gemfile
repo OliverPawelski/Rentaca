@@ -82,3 +82,5 @@ gem "cloudinary"
 gem "geocoder"
 
 gem 'jquery-ui-rails'
+gem 'faker', '~> 2.18', require: false
+gem 'unsplash'

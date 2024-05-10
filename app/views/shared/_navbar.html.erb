@@ -31,7 +31,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "About Us", "http://127.0.0.1:3000/about", class: "nav-link" %>
+            <%= link_to "About Us", about_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
           <% if current_user.cars.any? %>
@@ -44,9 +44,6 @@
             <%= link_to "Bookings", bookings_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-          <% if current_user.email == "admin@gmail.com" %>
-            <%= link_to "Admin", admin_dashboard_path, class: "nav-link" %>
-          <% end %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
